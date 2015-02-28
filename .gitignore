@@ -1,6 +1,8 @@
 # Ignore bundler config.
 /.bundle
 
+*.iml
+.idea/
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
