@@ -12,12 +12,16 @@ class CategoriesController < ApplicationController
   end
 
   def new
+    redirect_to new_user_session_path, notice: 'Admin' unless current_user.admin
   end
 
   def edit
+    redirect_to new_user_session_path, notice: 'Admin' unless current_user.admin
   end
 
   def create
+    #redirect_to new_user_session_path, notice: 'Admin' unless current_user.admin
+
     self.category = Category.new(category_params)
 
     if category.save
@@ -25,7 +29,9 @@ class CategoriesController < ApplicationController
     else
       render action: 'new'
     end
+
   end
+
 
   def update
     if category.update(category_params)
