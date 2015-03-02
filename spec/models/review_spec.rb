@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Review do
+  subject { create(:review) }
   describe 'validations' do
     it { should validate_presence_of :content }
     it { should validate_presence_of :rating }

@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe User do
+
+  subject { create(:user) }
+
   it { should validate_presence_of :firstname }
   it { should validate_presence_of :lastname }
 
