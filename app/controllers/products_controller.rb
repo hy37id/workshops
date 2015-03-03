@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    redirect_to category_product_url(category, product), notice: 'Product was successfully created.'
+    #redirect_to category_product_url(category, product), notice: 'Product was successfully created.'
   end
 
   def create
