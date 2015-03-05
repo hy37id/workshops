@@ -4,28 +4,35 @@
   .panel-body
 
     .panel.panel-default
-      %table.table.table-striped.table-hover
-        %tr
-          %th Name
-          %th
-          %th
-          %th
-        - categories.each do |category|
+      .table-responsive
+        %table.table.table-striped.table-hover.table-condensed
           %tr
-            %td= category.name
-            %td
-              %span.glyphicon.glyphicon-eye-open
-                = link_to 'Show', category,  class: "lbl-size label label-default"
-            - if signed_in?(:user) && current_user.admin
+            %th Name
+            %th
+            %th
+            %th
+          - categories.each do |category|
+            %tr
+              %td= category.name
               %td
-                %span.glyphicon.glyphicon-edit
-                  = link_to 'Edit', edit_category_path(category),  class: "lbl-size label label-success"
-              %td
-                %span.glyphicon.glyphicon-minus-sign
-                  = link_to 'Destroy', category,  class: "lbl-size label label-danger", method: :delete, data: { confirm: 'Are you sure?' }
-            - else
-              %td
-              %td
+                - if signed_in?(:user)
+                  %span.glyphicon.glyphicon-eye-open
+                    = link_to 'Show', category,  class: "lbl-size label label-default"
+                - if signed_in?(:user) && current_user.admin
+                  %td
+                    %span.glyphicon.glyphicon-edit
+                      = link_to 'Edit', edit_category_path(category),  class: "lbl-size label label-success"
+                  %td
+                    %span.glyphicon.glyphicon-minus-sign
+                      = link_to 'Destroy', category,  class: "lbl-size label label-danger", method: :delete, data: { confirm: 'Are you sure?' }
+                - else
+                  %td
+                  %td
+      .panel-footer Categories count: #{@categoryCount}
+
+
+
+
 
 
 

@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   expose(:product) { Product.new }
 
   def index
+    @categoryCount = Category.count
   end
 
   def show
