@@ -15,10 +15,9 @@
             %tr
               %td= category.name
               %td
-                - if signed_in?(:user)
-                  %span.glyphicon.glyphicon-eye-open
-                    = link_to 'Show', category,  class: "lbl-size label label-default"
-                - if signed_in?(:user) && current_user.admin
+                %span.glyphicon.glyphicon-eye-open
+                = link_to 'Show', category,  class: "lbl-size label label-default"
+                - if (signed_in?(:user) && current_user.admin) || (signed_in?(:user) && current_user.id==product.user_id)
                   %td
                     %span.glyphicon.glyphicon-edit
                       = link_to 'Edit', edit_category_path(category),  class: "lbl-size label label-success"
