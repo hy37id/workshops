@@ -1,7 +1,11 @@
-%h1 Editing category
+.panel.panel-default
+  .panel-heading
 
-= render 'form'
+    .panel-body
+      %h2 Editing category
 
-= link_to 'Show', category
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+      = render 'form'
+
+      = link_to 'Show', category, class: 'btnnavi btn btn-primary'
+      \|
+      = link_to 'Back', categories_path, class: 'btnnavi btn btn-primary'

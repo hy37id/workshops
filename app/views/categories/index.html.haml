@@ -1,19 +1,37 @@
-%h1 Listing categories
+.panel.panel-default
+  .panel-heading
+    %h2 Listing categories
+  .panel-body
 
-%table.table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+    .panel.panel-default
+      %table.table.table-striped.table-hover
+        %tr
+          %th Name
+          %th
+          %th
+          %th
+        - categories.each do |category|
+          %tr
+            %td= category.name
+            %td
+              %span.glyphicon.glyphicon-eye-open
+                = link_to 'Show', category,  class: "lbl-size label label-default"
+            - if signed_in?(:user) && current_user.admin
+              %td
+                %span.glyphicon.glyphicon-edit
+                  = link_to 'Edit', edit_category_path(category),  class: "lbl-size label label-success"
+              %td
+                %span.glyphicon.glyphicon-minus-sign
+                  = link_to 'Destroy', category,  class: "lbl-size label label-danger", method: :delete, data: { confirm: 'Are you sure?' }
+            - else
+              %td
+              %td
 
-  - categories.each do |category|
-    %tr
-      %td= category.name
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
 
-= link_to 'New Category', new_category_path
+
+
+    %br
+    - if signed_in?(:user)
+      - if current_user.admin?
+        = link_to 'New Category', new_category_path,  class: "btn btn-primary"
