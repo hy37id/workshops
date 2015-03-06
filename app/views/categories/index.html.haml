@@ -27,15 +27,8 @@
                 - else
                   %td
                   %td
-      .panel-footer Categories count: #{@categoryCount}
-
-
-
-
-
-
-
-
+      .panel-footer
+        %strong Categories count: #{@categoryCount}
 
     %br
     - if signed_in?(:user)

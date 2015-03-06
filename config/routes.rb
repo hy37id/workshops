@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users
+
   devise_for :users
 
   resources :categories do
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: :show
 
   root 'categories#index'
 end

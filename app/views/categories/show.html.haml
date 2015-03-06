@@ -7,18 +7,31 @@
     %p
       %b Name:
       = category.name
+    .panel.panel-default
+      .table-responsive
+        %table.table.table-striped.table-hover.table-condensed
+          %tr
+            %th Title
+            %th Description
+            %th Price
+            %th Reviews
+            - category.products.each do |product|
+              %tr
+                %td= product.title
+                %td= product.description
+                %td= product.price
+                -#%td= link_to @productReviewsCount, '#'
+                %td= link_to @productReviewsCount, category_product_reviews_path(category, product)
 
-    %p
-      - category.products.each do |product|
-        = product.title
 
-    - if (signed_in?(:user) && current_user.admin) || (signed_in?(:user) && current_user.id==product.user_id)
-      %p
-        %h3 New product
-        = render 'products/form'
 
-      = link_to 'Edit', edit_category_path(category), class: 'btnnavi btn btn-primary'
-      \|
-      = link_to 'Back', categories_path, class: 'btnnavi btn btn-primary'
+      - if (signed_in?(:user) && current_user.admin) || (signed_in?(:user) && current_user.id==product.user_id)
+        %p
+          %h3 New product
+          = render 'products/form'
+
+        = link_to 'Edit', edit_category_path(category), class: 'btnnavi btn btn-primary'
+        \|
+        = link_to 'Back', categories_path, class: 'btnnavi btn btn-primary'
 
 = link_to 'Home', root_path, class: 'btnnavi btn btn-primary'

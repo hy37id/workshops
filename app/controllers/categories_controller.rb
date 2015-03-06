@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
   
-  expose(:categories)
+  expose(:categories) { Category.order(:name) }
   expose(:category)
   expose(:product) { Product.new }
 
@@ -10,6 +10,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
+
+    @productReviewsCount = product.reviews.count
+
   end
 
   def new
