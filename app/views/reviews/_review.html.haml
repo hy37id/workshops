@@ -1,4 +1,10 @@
-%p= review.content
+%h2 Reviews
 %p
-  %b= review.rating
-  %em= review.author
+  %b Content:
+  = review.content
+  %br
+  %b Rating:
+  = review.rating
+  %br
+  %b Author:
+  %em= link_to review.author, user_path(review.user.id)

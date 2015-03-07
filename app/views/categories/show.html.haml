@@ -19,7 +19,7 @@
               %tr
                 %td= product.title
                 %td= product.description
-                %td= product.price
+                %td= number_to_currency(product.price)
                 -#%td= link_to @productReviewsCount, '#'
                 %td= link_to @productReviewsCount, category_product_reviews_path(category, product)
 
@@ -35,3 +35,5 @@
         = link_to 'Back', categories_path, class: 'btnnavi btn btn-primary'
 
 = link_to 'Home', root_path, class: 'btnnavi btn btn-primary'
+- if signed_in?(:user)
+  = link_to 'New Product', new_category_product_path(category),  class: "btn btn-primary"

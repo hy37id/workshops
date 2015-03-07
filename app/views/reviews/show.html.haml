@@ -1,0 +1,17 @@
+%p
+  %b Title:
+  = product.title
+%p
+  %b Description:
+  = product.description
+%p
+  %b Price:
+  = product.price
+
+%p
+  %b Category
+  = product.category.name
+
+%h3 Reviews
+= render 'reviews/form'
+

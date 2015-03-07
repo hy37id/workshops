@@ -1,1 +1,4 @@
-%h2 Test
+%h2 Test2
+= link_to 'Home', root_path, class: 'btnnavi btn btn-primary'
+- if signed_in?(:user)
+  = link_to 'New Review', new_category_product_review_path(),  class: "btn btn-primary"
