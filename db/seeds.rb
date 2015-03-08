@@ -24,6 +24,12 @@ lop = Product.create(title: 'Life of Pi', description: 'Life of Pi is a fantasy 
 b = Product.create(title: 'Boneshaker', description: 'In the early days of the Civil War, rumors of gold in the frozen Klondike brought hordes of newcomers to the Pacific Northwest. Anxious to compete, Russian prospectors commissioned inventor Leviticus Blue to create a great machine that could mine through Alaska’s ice. Thus was Dr. Blue’s Incredible Bone-Shaking Drill Engine born.', price: 12.50, user: admin, category: books)
 
 
+flex = Product.create(title: 'Lenovo Flex', description: 'Budget-friendly multimode computing is here at last in the Lenovo Flex 2 (14 inch), a 35.56cm (14) dual-mode laptop with a touchscreen that flips 300 degrees from laptop to stand mode.', price: 1250, user: joe, category: laptops)
+yoga = Product.create(title: 'Lenovo Yoga', description: 'Lenovo Yoga 13: Combining the productivity of an Ultrabook™ with the intuitive touch experience of a tablet, the 13.3-inch Lenovo Yoga 13 will give you the ultimate in versatility. Convert between four modes to make the most of Windows 8 – any way you want, any time you want.', price: 1550, user: joe, category: laptops)
+zen = Product.create(title: 'Asus Zenbooks', description: 'ASUS made a grand entrance into the Ultrabook race with the Zenbook Prime UX31E, which brought a sleek design and lovely, high-res screen. That machine was one of our favorites in what was still a budding category, though we took issue with the shallow keyboard and uncomfortable touchpad. The company recently started shipping its new Zenbook Prime series, including the 11-inch UX21A we checked out a few months ago. But there\'s also a follow-up to the 13-inch UX31E on the market: the ASUS Zenbook Prime UX31A. This laptop offers a retooled keyboard, Ivy Bridge chips and a 1,920 x 1,080 IPS display', price: 1850, user: joe, category: laptops)
+xps = Product.create(title: 'Dell Xps', description: '', price: 2050, user: joe, category: laptops)
+
+
 Review.create(content: 'Stephen King does it again! What do I mean by that? Let me tell you. The reason I love Mr. King is because of his characters. I believe that his characterizations are what makes his books so special and popular. This book is no exception.
 ', rating: 5, product: mm, user: joe)
 
