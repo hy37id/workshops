@@ -11,8 +11,8 @@
   %body
     - if notice
       %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
+    - if alert || flash[:error]
+      %p.alert.alert-danger= alert || flash[:error]
 
     %nav.navbar.navbar-default
       .container-fluid

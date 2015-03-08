@@ -1,6 +1,7 @@
 .panel.panel-default
   .panel-heading
     %h2 Listing product
+    %h3= product.title
   .panel-body
 
     .panel.panel-default
@@ -14,7 +15,7 @@
       = product.description
     %p
       %b Price:
-      = product.price
+      = number_to_currency(product.price)
 
     %p
       %b Category

@@ -1,9 +1,6 @@
-%p#notice= notice
 .panel.panel-default
   .panel-heading
-
     .panel-body
-
     %p
       %b Firstname:
       = user.firstname
@@ -26,9 +23,6 @@
             %th Rating
             %th Content
             %th Created
-
-
-
           - @reviews.each do |review|
             %tr
               %td= review.product.category.name
@@ -36,9 +30,6 @@
               %td= review.rating
               %td= review.content
               %td= review.created_at.strftime("%d/%m/%y")
-
-
-
         -#= link_to 'Back', users_path, class: 'btnnavi btn btn-primary'
 
 = link_to 'Home', root_path, class: 'btnnavi btn btn-primary'
