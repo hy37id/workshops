@@ -1,26 +1,40 @@
-%p#notice= notice
-%p#error= flash[:error]
+.panel.panel-default
+  .panel-heading
+    %h2 Listing product
+  .panel-body
 
-%p
-  %b Title:
-  = product.title
-%p
-  %b Description:
-  = product.description
-%p
-  %b Price:
-  = product.price
+    .panel.panel-default
 
-%p
-  %b Category
-  = product.category.name
+
+    %p
+      %b Title:
+      = product.title
+    %p
+      %b Description:
+      = product.description
+    %p
+      %b Price:
+      = product.price
+
+    %p
+      %b Category
+      = product.category.name
+
+
+- if (signed_in?(:user) && current_user.admin) || (signed_in?(:user) && current_user.id==product.user_id)
+  = link_to 'Edit product', edit_category_product_path(category.id, product.id), class: 'btn btn-primary'
+-#\|
+-#= link_to 'Back', category_products_path, class: 'btn btn-primary'
+
 
 %h3 Reviews
-= render 'reviews/form'
+-#= render 'reviews/form'
 
 = render reviews
 
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
-\|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
-= link_to 'New Review', new_category_product_review_path(category, product),  class: "btn btn-primary"
+- if signed_in?(:user)
+  %p
+  = link_to 'New Review', new_category_product_review_path(category, product),  class: "btn btn-primary"
+
+%p
+= link_to 'Home', root_path, class: 'btnnavi btn btn-primary'

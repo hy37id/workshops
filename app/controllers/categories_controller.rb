@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
   def show
 
-    @productReviewsCount = product.reviews.count
+    @productCount = category.products.count
 
   end
 
@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
 
   def update
 
-    if current_user.admin? then
+    if current_user.admin?
 
     if category.update(category_params)
       redirect_to category, notice: 'Category was successfully updated.'

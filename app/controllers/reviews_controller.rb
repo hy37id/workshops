@@ -1,11 +1,13 @@
 class ReviewsController < ApplicationController
 
   expose(:review)
+  expose(:reviews)
   expose(:product)
   expose(:category)
 
 
   def index
+
   end
 
   def show

@@ -13,10 +13,8 @@
             %th
           - categories.each do |category|
             %tr
-              %td= category.name
+              %td= link_to category.name, category,  class: ""
               %td
-                %span.glyphicon.glyphicon-eye-open
-                = link_to 'Show', category,  class: "lbl-size label label-default"
                 - if (signed_in?(:user) && current_user.admin) || (signed_in?(:user) && current_user.id==product.user_id)
                   %td
                     %span.glyphicon.glyphicon-edit
@@ -30,8 +28,9 @@
       .panel-footer
         %strong Categories count: #{@categoryCount}
 
+
     %br
+    = link_to 'Home', root_path, class: 'btnnavi btn btn-primary'
     - if signed_in?(:user)
       - if current_user.admin?
         = link_to 'New Category', new_category_path,  class: "btn btn-primary"
-

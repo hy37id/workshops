@@ -1,10 +1,14 @@
-%h2 Reviews
-%p
-  %b Content:
-  = review.content
-  %br
-  %b Rating:
-  = review.rating
-  %br
-  %b Author:
-  %em= link_to review.author, user_path(review.user.id)
+-#%h2 Reviews
+.panel.panel-default
+  .panel-heading
+  .panel-body
+
+    %p
+      %b Content:
+      = review.content
+      %br
+      %b Rating:
+      = review.rating
+      %br
+      %b Author:
+      %em= link_to review.author, user_path(review.user.id)

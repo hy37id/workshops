@@ -1,7 +1,17 @@
-%h1 Editing product
+.panel.panel-default
+  .panel-heading
 
-= render 'form'
+    .panel-body
 
-= link_to 'Show', category_product_path(category, product)
-\|
-= link_to 'Back', category_path(category)
+    %h1 Editing product
+    %h2 #{product.title}
+
+    = render 'form'
+
+= link_to 'Home', root_path, class: 'btnnavi btn btn-primary'
+
+= link_to 'Show Product', category_product_path(category, product), class: 'btnnavi btn btn-primary'
+
+= link_to 'Back to Products', category_path(category), class: 'btnnavi btn btn-primary'
+
+

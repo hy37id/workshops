@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
   def create
     self.product = Product.new(product_params)
-
+    product.user = current_user
     if product.save
       category.products << product
       redirect_to category_product_url(category, product), notice: 'Product was successfully created.'
@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
   private
 
   def owner!
-    unless self.product.user == current_user
+    unless self.product.user == current_user || current_user.admin
       redirect_to category_product_url(category, product),
                   flash: { error: 'You are not allowed to edit this product.' }
     end
